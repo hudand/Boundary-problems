@@ -1,7 +1,7 @@
 #pragma once
 
 enum class Regularization {
-	noreg, partial, usual, full
+	Noreg, Partial, Usual, Full
 };
 
 enum class IterMethod {
@@ -13,7 +13,7 @@ enum class Approximation {
 };
 
 enum class MethodOrder {
-	second, third, hybrid
+	Second, Third, Hybrid
 };
 
 struct Configuration
