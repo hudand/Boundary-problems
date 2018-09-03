@@ -3,8 +3,8 @@
 
 struct IConfigurationManager
 {
-	Configuration Load() = 0;
-	void Save(const Configuration& configuration) = 0;
-
+public:
+	virtual Configuration Load() = 0;
+	virtual void Save(const Configuration& configuration) = 0;
 };
 

@@ -27,6 +27,12 @@
     <ClInclude Include="IConfigurationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="JsonConfigManag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Boundary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -36,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Configuration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonConfigManag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

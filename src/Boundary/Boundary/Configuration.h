@@ -37,11 +37,11 @@ struct Configuration
 
 	IterMethod nonlinMethod; // method of solving a system of nonlinear algebraic equations
 	double accuracy; // accuracy of the grid solution
-	int methodOrder; // order of method (2 or 3 or hybrid)
+	MethodOrder methodOrder; // order of method (2 or 3 or hybrid)
 	
 	Approximation approx; // type of grid solution approximation
 
-	double iterationMax; // maximum number of iterations
+	int iterationMax; // maximum number of iterations
 	double normMax; // maximum norm value (after method was sold out)
 
 };
