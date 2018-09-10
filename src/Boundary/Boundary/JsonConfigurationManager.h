@@ -1,14 +1,15 @@
 #pragma once
 #include "IConfigurationManager.h"
-class JsonConfigManag :
+class JsonConfigurationManager :
 	public IConfigurationManager
 {
 private:
 	std::filesystem::path path;
+	Configuration DefaultLoad();
 public:
-	JsonConfigManag();
-	JsonConfigManag(std::filesystem::path path);
-	~JsonConfigManag();
+	JsonConfigurationManager();
+	JsonConfigurationManager(std::filesystem::path path);
+	~JsonConfigurationManager();
 	Configuration Load() override;
 	void Save(const Configuration& configuration) override;
 };

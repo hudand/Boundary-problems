@@ -27,10 +27,16 @@
     <ClInclude Include="IConfigurationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="JsonConfigManag.h">
+    <ClInclude Include="Boundary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Boundary.h">
+    <ClInclude Include="JsonConfigurationManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Filesystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,7 +50,13 @@
     <ClCompile Include="Configuration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="JsonConfigManag.cpp">
+    <ClCompile Include="JsonConfigurationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Logging.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Filesystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

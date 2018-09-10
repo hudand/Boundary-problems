@@ -1,15 +1,15 @@
 #pragma once
 
 enum class Regularization {
-	Noreg, Partial, Usual, Full
+	Noregularized, Partial, Usual, Full
 };
 
-enum class IterMethod {
+enum class IterativeMethod {
 	Newton, Kalitkin
 };
 
 enum class Approximation {
-	Spline3, Spline5, FourierTrigSeries, ChebyshevPolinoms, Lagrange, Newton, TrigLagrange, LeastSquare
+	Spline3, Spline5, FourierTrigonometricSeries, ChebyshevPolinoms, Lagrange, Newton, TrigonometricLagrange, LeastSquare
 };
 
 enum class MethodOrder {
@@ -22,26 +22,27 @@ struct Configuration
 	~Configuration();
 
 	std::string equation; // differential equation
-	std::string lbound; // left boundary condition
-	std::string rbound; // right boundary condition
-	std::string initApprox; // initial approximation
-	bool isInitApproxFromFile; // initial approximation from file?
+	std::string leftBound; // left boundary condition
+	std::string rightBound; // right boundary condition
+	std::string initialApproximation; // initial approximation
+	bool isInitialApproximationFromFile; // initial approximation from file?
+	bool isPeriodicProblem; // periodic problem?
 	
-	Regularization regul; // type of regularization
+	Regularization regularization; // type of regularization
 	double alpha; // regularization parameter
 	double alpha2; // regularization parameter
 
 	bool isUniformGrid; // grid uniformity
-	int nodesCount; // number of grid nodes
-	int patternNodesCount; // number of pattern nodes
+	unsigned int nodesCount; // number of grid nodes
+	unsigned int patternNodesCount; // number of pattern nodes
 
-	IterMethod nonlinMethod; // method of solving a system of nonlinear algebraic equations
+	IterativeMethod nonlinearMethod; // method of solving a system of nonlinear algebraic equations
 	double accuracy; // accuracy of the grid solution
 	MethodOrder methodOrder; // order of method (2 or 3 or hybrid)
 	
-	Approximation approx; // type of grid solution approximation
+	Approximation approximation; // type of grid solution approximation
 
-	int iterationMax; // maximum number of iterations
+	unsigned int iterationMax; // maximum number of iterations
 	double normMax; // maximum norm value (after method was sold out)
 
 };
