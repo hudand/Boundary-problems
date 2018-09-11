@@ -18,32 +18,31 @@ enum class MethodOrder {
 
 struct Configuration
 {
-	Configuration();
-	~Configuration();
-
-	std::string equation; // differential equation
-	std::string leftBound; // left boundary condition
-	std::string rightBound; // right boundary condition
-	std::string initialApproximation; // initial approximation
-	bool isInitialApproximationFromFile; // initial approximation from file?
-	bool isPeriodicProblem; // periodic problem?
+	std::string equation = "y''(x) + 0.2 * y'(x) + (y(x))^3 + y(x) = 50 * cos(x)"; // differential equation
+	std::string leftBound = "y(0) = y(2 * pi)";                                    // left boundary condition
+	std::string rightBound = "y'(0) = y'(2 * pi)";                                 // right boundary condition
+	std::string initialApproximation = "sin(x) + cos(x)";                          // initial approximation
+	bool isInitialApproximationFromFile = false;                                   // initial approximation from file?
+	bool isPeriodicProblem = true;                                                 // periodic problem?
 	
-	Regularization regularization; // type of regularization
-	double alpha; // regularization parameter
-	double alpha2; // regularization parameter
+	Regularization regularization = Regularization::Usual;                         // type of regularization
+	double alpha = 1e-5;                                                           // regularization parameter
+	double alpha2 = 1e-8;                                                          // regularization parameter
 
-	bool isUniformGrid; // grid uniformity
-	unsigned int nodesCount; // number of grid nodes
-	unsigned int patternNodesCount; // number of pattern nodes
+	bool isUniformGrid = true;                                                     // grid uniformity
+	unsigned int nodesCount = 384;                                                 // number of grid nodes
+	unsigned int patternNodesCount = 21;                                           // number of pattern nodes
 
-	IterativeMethod nonlinearMethod; // method of solving a system of nonlinear algebraic equations
-	double accuracy; // accuracy of the grid solution
-	MethodOrder methodOrder; // order of method (2 or 3 or hybrid)
+	IterativeMethod nonlinearMethod = IterativeMethod::Newton;                     // method of solving a system of 
+	                                                                               // nonlinear algebraic equations
+
+	double accuracy = 1e-13;													   // accuracy of the grid solution
+	MethodOrder methodOrder = MethodOrder::Second;								   // order of method (2 or 3 or hybrid)
 	
-	Approximation approximation; // type of grid solution approximation
+	Approximation approximation = Approximation::Spline3;						   // type of grid solution approximation
 
-	unsigned int iterationMax; // maximum number of iterations
-	double normMax; // maximum norm value (after method was sold out)
+	unsigned int iterationMax = 500;											   // maximum number of iterations
+	double normMax = 1e100;														   // maximum norm value (after method was sold out)
 
 };
 

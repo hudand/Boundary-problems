@@ -7,4 +7,4 @@ namespace src = boost::log::sources;
 using namespace logging::trivial;
 
 void LoggingInitialization();
-void boostLog(severity_level level, std::string message);
+void BoostLog(severity_level level, const std::string& message);

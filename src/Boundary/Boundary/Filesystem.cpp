@@ -15,7 +15,7 @@ std::string GetEnvironmentVariable(const std::string& name)
 }
 
 // Returns a path with a folder for settings
-std::filesystem::path SettingsPath() {
+std::filesystem::path GetSettingsPath() {
 
 	std::string s;
 	s = GetEnvironmentVariable("LocalAppData");
@@ -26,13 +26,14 @@ std::filesystem::path SettingsPath() {
 // Creates a folder with settings and project logs
 bool CreateSettingsDir() {
 
-	return std::filesystem::create_directory(SettingsPath());
+	return std::filesystem::create_directory(GetSettingsPath());
 }
 
 // Returns the path to LogFile
-std::string LogFilePath(const std::string FileName) {
+std::string GetLogFilePath() {
 
-	std::filesystem::path path = SettingsPath();
-	path.append(FileName);
+	static const std::string fileName = "SimpleLog.log";
+	std::filesystem::path path = GetSettingsPath();
+	path.append(fileName);
 	return path.string();
 }

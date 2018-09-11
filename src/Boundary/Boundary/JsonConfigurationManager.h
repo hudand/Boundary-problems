@@ -5,11 +5,10 @@ class JsonConfigurationManager :
 {
 private:
 	std::filesystem::path path;
-	Configuration DefaultLoad();
 public:
 	JsonConfigurationManager();
 	JsonConfigurationManager(std::filesystem::path path);
-	~JsonConfigurationManager();
+	~JsonConfigurationManager() = default;
 	Configuration Load() override;
 	void Save(const Configuration& configuration) override;
 };

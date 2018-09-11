@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Logging.h"
+#include "Filesystem.h"
 
 namespace keywords = boost::log::keywords;
 namespace expr = boost::log::expressions;
@@ -9,7 +10,7 @@ void LoggingInitialization()
 {
 	logging::add_file_log
 	(
-		keywords::file_name = LogFilePath("SimpleLog.log"),
+		keywords::file_name = GetLogFilePath(),
 		keywords::format =
 		(
 			expr::stream
@@ -25,8 +26,8 @@ void LoggingInitialization()
 	);
 }
 
-void boostLog(severity_level level, std::string message) {
-	src::severity_logger< severity_level > lg;
+void BoostLog(severity_level level, const std::string& message) {
+	static src::severity_logger< severity_level > lg;
 	BOOST_LOG_SEV(lg, level) << message;
 }
 

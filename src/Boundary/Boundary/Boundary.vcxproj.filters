@@ -47,9 +47,6 @@
     <ClCompile Include="Boundary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Configuration.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="JsonConfigurationManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -2,6 +2,6 @@
 #include "stdafx.h"
 
 std::string GetEnvironmentVariable(const std::string& name);
-std::filesystem::path SettingsPath();
+std::filesystem::path GetSettingsPath();
 bool CreateSettingsDir();
-std::string LogFilePath(const std::string FileName);
+std::string GetLogFilePath(const std::string FileName);
