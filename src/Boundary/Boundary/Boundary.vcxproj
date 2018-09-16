@@ -153,7 +153,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Boundary.h" />
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="Filesystem.h" />
     <ClInclude Include="IConfigurationManager.h" />

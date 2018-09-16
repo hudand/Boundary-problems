@@ -1,6 +1,5 @@
 #pragma once
 #include "stdafx.h"
-#include "Boundary.h"
 
 namespace logging = boost::log;
 namespace src = boost::log::sources;

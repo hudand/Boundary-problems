@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "JsonConfigurationManager.h"
-#include "Boundary.h"
 #include "Logging.h"
+#include "Filesystem.h"
 
 namespace pt = boost::property_tree;
 
@@ -27,7 +27,7 @@ void JsonConfigurationManager::Save(const Configuration& configuration)
 		root.put("is_initial_approximation_from_file", configuration.isInitialApproximationFromFile);
 		root.put("is_periodic_problem", configuration.isPeriodicProblem);
 
-		root.put("regularization", int(configuration.regularization));
+		root.put("regularization", static_cast<int>(configuration.regularization));
 		root.put("alpha", configuration.alpha);
 		root.put("alpha_2", configuration.alpha2);
 
@@ -35,11 +35,11 @@ void JsonConfigurationManager::Save(const Configuration& configuration)
 		root.put("nodes_count", configuration.nodesCount);
 		root.put("pattern_nodes_count", configuration.patternNodesCount);
 
-		root.put("nonlinear_method", int(configuration.nonlinearMethod));
+		root.put("nonlinear_method", static_cast<int>(configuration.nonlinearMethod));
 		root.put("accuracy", configuration.accuracy);
-		root.put("method_order", int(configuration.methodOrder));
+		root.put("method_order", static_cast<int>(configuration.methodOrder));
 
-		root.put("approximation", int(configuration.approximation));
+		root.put("approximation", static_cast<int>(configuration.approximation));
 
 		root.put("iteration_max", configuration.iterationMax);
 		root.put("norm_max", configuration.normMax);
@@ -69,7 +69,7 @@ Configuration JsonConfigurationManager::Load()
 		configuration.isInitialApproximationFromFile = root.get<bool>("is_initial_approximation_from_file");
 		configuration.isPeriodicProblem = root.get<bool>("is_periodic_problem");
 
-		configuration.regularization = Regularization(root.get<int>("regularization"));
+		configuration.regularization = static_cast<Regularization>(root.get<int>("regularization"));
 		configuration.alpha = root.get<double>("alpha");
 		configuration.alpha2 = root.get<double>("alpha_2");
 
@@ -77,11 +77,11 @@ Configuration JsonConfigurationManager::Load()
 		configuration.nodesCount = root.get<int>("nodes_count");
 		configuration.patternNodesCount = root.get<int>("pattern_nodes_count");
 
-		configuration.nonlinearMethod = IterativeMethod(root.get<int>("nonlinear_method"));
+		configuration.nonlinearMethod = static_cast<IterativeMethod>(root.get<int>("nonlinear_method"));
 		configuration.accuracy = root.get<double>("accuracy");
-		configuration.methodOrder = MethodOrder(root.get<int>("method_order"));
+		configuration.methodOrder = static_cast<MethodOrder>(root.get<int>("method_order"));
 
-		configuration.approximation = Approximation(root.get<int>("approximation"));
+		configuration.approximation = static_cast<Approximation>(root.get<int>("approximation"));
 
 		configuration.iterationMax = root.get<int>("iteration_max");
 		configuration.normMax = root.get<double>("norm_max");

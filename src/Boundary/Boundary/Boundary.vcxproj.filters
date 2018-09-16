@@ -27,9 +27,6 @@
     <ClInclude Include="IConfigurationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Boundary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="JsonConfigurationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
