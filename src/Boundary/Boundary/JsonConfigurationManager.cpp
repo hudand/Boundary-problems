@@ -5,14 +5,14 @@
 
 namespace pt = boost::property_tree;
 
-JsonConfigurationManager::JsonConfigurationManager()
+JsonConfigurationManager::JsonConfigurationManager() : path{ GetSettingsPath() / "Settings.json" }
 {
-	path = GetSettingsPath() / "Settings.json";
+	
 }
 
-JsonConfigurationManager::JsonConfigurationManager(std::filesystem::path path)
+JsonConfigurationManager::JsonConfigurationManager(std::filesystem::path path) : path{path}
 {
-	this->path = path;
+	
 }
 
 void JsonConfigurationManager::Save(const Configuration& configuration)
