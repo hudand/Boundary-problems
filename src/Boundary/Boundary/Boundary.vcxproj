@@ -156,11 +156,13 @@
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="Filesystem.h" />
     <ClInclude Include="IConfigurationManager.h" />
+    <ClInclude Include="IMatrixSerializer.h" />
     <ClInclude Include="JsonConfigurationManager.h" />
     <ClInclude Include="Logging.h" />
     <ClInclude Include="Setup.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UsualMatrixSerializer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Boundary.cpp" />
@@ -173,6 +175,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="UsualMatrixSerializer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
