@@ -3,8 +3,6 @@
 #include "Logging.h"
 #include "Filesystem.h"
 
-namespace pt = boost::property_tree;
-
 JsonConfigurationManager::JsonConfigurationManager() : path{ GetSettingsPath() / "Settings.json" }
 {
 	

@@ -3,6 +3,7 @@
 
 namespace logging = boost::log;
 namespace src = boost::log::sources;
+namespace pt = boost::property_tree;
 using namespace logging::trivial;
 
 void LoggingInitialization();
