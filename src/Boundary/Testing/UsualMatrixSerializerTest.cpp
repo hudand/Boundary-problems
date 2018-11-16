@@ -2,17 +2,11 @@
 #include <boost/test/unit_test.hpp>
 //#include <boost/test/included/unit_test.hpp>
 #include "UsualMatrixSerializer.cpp"
+#include "Auxiliary.cpp"
 
-struct F {
-	F() : i(0) { BOOST_TEST_MESSAGE("setup fixture"); }
-	~F() { BOOST_TEST_MESSAGE("teardown fixture"); }
+BOOST_FIXTURE_TEST_SUITE(TestUsualMatrixSerializer, ClassForTesting)
 
-	int i;
-};
-
-BOOST_FIXTURE_TEST_SUITE(testUsualMatrixSerializer, F)
-
-BOOST_AUTO_TEST_CASE(testUsualMatrixSerializerLoad)
+BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerLoad)
 {
 	std::filesystem::path testPath("FilesForTesting");									   // path to the test file
 	testPath.append("testUsualMatrixSerializerLoad.dat");
@@ -20,8 +14,8 @@ BOOST_AUTO_TEST_CASE(testUsualMatrixSerializerLoad)
 	UsualMatrixSerializer serializer;
 	UsualMatrix m = serializer.Load(testPath);
 	
-	BOOST_TEST(m.size1() == static_cast<unsigned int>(3));
-	BOOST_TEST(m.size2() == static_cast<unsigned int>(4));
+	BOOST_REQUIRE(m.size1() == static_cast<unsigned int>(3));
+	BOOST_REQUIRE(m.size2() == static_cast<unsigned int>(4));
 		
 	BOOST_TEST(m(0, 0) == 2, boost::test_tools::tolerance(1e-8));
 	BOOST_TEST(m(0, 3) == 2.1, boost::test_tools::tolerance(1e-8));
@@ -31,7 +25,7 @@ BOOST_AUTO_TEST_CASE(testUsualMatrixSerializerLoad)
 	BOOST_TEST(m(2, 3) == 1e12, boost::test_tools::tolerance(1e-8));  
 }
 
-BOOST_AUTO_TEST_CASE(testUsualMatrixSerializerSave)
+BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerSave)
 {
 	UsualMatrix m(4, 3);
 
@@ -50,8 +44,8 @@ BOOST_AUTO_TEST_CASE(testUsualMatrixSerializerSave)
 	
 	std::filesystem::remove(testPath);
 
-	BOOST_TEST(m.size1() == static_cast<unsigned int>(4));
-	BOOST_TEST(m.size2() == static_cast<unsigned int>(3));
+	BOOST_REQUIRE(m.size1() == static_cast<unsigned int>(4));
+	BOOST_REQUIRE(m.size2() == static_cast<unsigned int>(3));
 	for (unsigned int k = 0; k < 4; k++)
 		for (unsigned int j = 0; j < 3; j++)
 			BOOST_TEST(m(k, j) == m1(k, j), boost::test_tools::tolerance(1e-8));
