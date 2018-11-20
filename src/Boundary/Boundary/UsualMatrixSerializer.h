@@ -1,8 +1,8 @@
 #pragma once
 #include "stdafx.h"
 #include "IMatrixSerializer.h"
+#include "MatrixTypes.h"
 
-using UsualMatrix = boost::numeric::ublas::matrix<MatrixElement>;
 
 class UsualMatrixSerializer :
 	public IMatrixSerializer<UsualMatrix>

@@ -1,6 +1,5 @@
 #include "pch.h"
 #include <boost/test/unit_test.hpp>
-//#include <boost/test/included/unit_test.hpp>
 #include "UsualMatrixSerializer.cpp"
 #include "Auxiliary.cpp"
 
@@ -14,15 +13,16 @@ BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerLoad)
 	UsualMatrixSerializer serializer;
 	UsualMatrix m = serializer.Load(testPath);
 	
-	BOOST_REQUIRE(m.size1() == static_cast<unsigned int>(3));
-	BOOST_REQUIRE(m.size2() == static_cast<unsigned int>(4));
+	BOOST_REQUIRE(m.size1() == static_cast<unsigned>(3));
+	BOOST_REQUIRE(m.size2() == static_cast<unsigned>(4));
 		
-	BOOST_TEST(m(0, 0) == 2, boost::test_tools::tolerance(1e-8));
-	BOOST_TEST(m(0, 3) == 2.1, boost::test_tools::tolerance(1e-8));
-	BOOST_TEST(m(1, 2) == 5, boost::test_tools::tolerance(1e-8));
-	BOOST_TEST(m(1, 3) == 3e-5, boost::test_tools::tolerance(1e-8));
-	BOOST_TEST(m(2, 1) == 4.6, boost::test_tools::tolerance(1e-8));
-	BOOST_TEST(m(2, 3) == 1e12, boost::test_tools::tolerance(1e-8));  
+	using namespace boost::test_tools;
+	BOOST_TEST(m(0, 0) == 2,	tolerance(1e-8));
+	BOOST_TEST(m(0, 3) == 2.1,	tolerance(1e-8));
+	BOOST_TEST(m(1, 2) == 5,	tolerance(1e-8));
+	BOOST_TEST(m(1, 3) == 3e-5, tolerance(1e-8));
+	BOOST_TEST(m(2, 1) == 4.6,	tolerance(1e-8));
+	BOOST_TEST(m(2, 3) == 1e12, tolerance(1e-8));  
 }
 
 BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerSave)
@@ -44,10 +44,10 @@ BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerSave)
 	
 	std::filesystem::remove(testPath);
 
-	BOOST_REQUIRE(m.size1() == static_cast<unsigned int>(4));
-	BOOST_REQUIRE(m.size2() == static_cast<unsigned int>(3));
-	for (unsigned int k = 0; k < 4; k++)
-		for (unsigned int j = 0; j < 3; j++)
+	BOOST_REQUIRE(m.size1() == static_cast<unsigned>(4));
+	BOOST_REQUIRE(m.size2() == static_cast<unsigned>(3));
+	for (unsigned k = 0; k < 4; k++)
+		for (unsigned j = 0; j < 3; j++)
 			BOOST_TEST(m(k, j) == m1(k, j), boost::test_tools::tolerance(1e-8));
 }
 

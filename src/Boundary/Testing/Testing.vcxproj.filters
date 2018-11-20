@@ -35,5 +35,8 @@
     <ClCompile Include="Auxiliary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GaussSolverTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

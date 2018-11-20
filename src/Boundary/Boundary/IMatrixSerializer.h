@@ -1,8 +1,6 @@
 #pragma once
 #include "stdafx.h"
 
-using MatrixElement = double;
-//using Matrix = boost::numeric::ublas::matrix<MatrixElement>;
 
 template<typename TMatrix>
 struct IMatrixSerializer
