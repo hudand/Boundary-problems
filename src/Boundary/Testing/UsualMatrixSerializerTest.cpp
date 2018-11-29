@@ -1,7 +1,7 @@
 #include "pch.h"
-#include <boost/test/unit_test.hpp>
-#include "UsualMatrixSerializer.cpp"
 #include "Auxiliary.cpp"
+#include "UsualMatrixSerializer.cpp"
+
 
 BOOST_FIXTURE_TEST_SUITE(TestUsualMatrixSerializer, ClassForTesting)
 
@@ -16,13 +16,12 @@ BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerLoad)
 	BOOST_REQUIRE(m.size1() == static_cast<size_t>(3));
 	BOOST_REQUIRE(m.size2() == static_cast<size_t>(4));
 		
-	using namespace boost::test_tools;
-	BOOST_TEST(m(0, 0) == 2,	tolerance(1e-8));
-	BOOST_TEST(m(0, 3) == 2.1,	tolerance(1e-8));
-	BOOST_TEST(m(1, 2) == 5,	tolerance(1e-8));
-	BOOST_TEST(m(1, 3) == 3e-5, tolerance(1e-8));
-	BOOST_TEST(m(2, 1) == 4.6,	tolerance(1e-8));
-	BOOST_TEST(m(2, 3) == 1e12, tolerance(1e-8));  
+	BOOST_TEST(m(0, 0) == 2,	accuracy);
+	BOOST_TEST(m(0, 3) == 2.1,	accuracy);
+	BOOST_TEST(m(1, 2) == 5,	accuracy);
+	BOOST_TEST(m(1, 3) == 3e-5, accuracy);
+	BOOST_TEST(m(2, 1) == 4.6,	accuracy);
+	BOOST_TEST(m(2, 3) == 1e12, accuracy);
 }
 
 BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerSave)
@@ -48,7 +47,7 @@ BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerSave)
 	BOOST_REQUIRE(m.size2() == static_cast<size_t>(3));
 	for (size_t k = 0; k < 4; k++)
 		for (size_t j = 0; j < 3; j++)
-			BOOST_TEST(m(k, j) == m1(k, j), boost::test_tools::tolerance(1e-8));
+			BOOST_TEST(m(k, j) == m1(k, j), accuracy);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
