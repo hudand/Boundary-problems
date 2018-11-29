@@ -8,14 +8,14 @@ UsualMatrix UsualMatrixSerializer::Load(const std::filesystem::path& path) const
 	try
 	{
 		std::ifstream inputFile{ path.string() };
-		int unsigned size1{ 0 }; // rows count
-		int unsigned size2{ 0 }; // columns count
+		size_t size1{ 0 }; // rows count
+		size_t size2{ 0 }; // columns count
 
 		inputFile >> size1 >> size2;
 
 		UsualMatrix m(size1, size2);
-		for (unsigned int i = 0; i < size1; i++)
-			for (unsigned int j = 0; j < size2; j++)
+		for (size_t i = 0; i < size1; i++)
+			for (size_t j = 0; j < size2; j++)
 				inputFile >> m(i, j);
 
 		BoostLog(info, "Matrix " + std::to_string(size1) + "x" + std::to_string(size2) + " successfully loaded from file \"" +
@@ -37,9 +37,9 @@ void UsualMatrixSerializer::Save(const std::filesystem::path& path, const UsualM
 
 		outputFile << matrix.size1() << " " << matrix.size2() << std::endl;
 
-		for (unsigned int i = 0; i < matrix.size1(); i++)
+		for (size_t i = 0; i < matrix.size1(); i++)
 		{
-			for (unsigned int j = 0; j < matrix.size2() - 1; j++)
+			for (size_t j = 0; j < matrix.size2() - 1; j++)
 				outputFile << matrix(i, j) << " ";
 			outputFile << matrix(i, matrix.size2() - 1) << std::endl;
 		}

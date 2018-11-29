@@ -13,8 +13,8 @@ BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerLoad)
 	UsualMatrixSerializer serializer;
 	UsualMatrix m = serializer.Load(testPath);
 	
-	BOOST_REQUIRE(m.size1() == static_cast<unsigned>(3));
-	BOOST_REQUIRE(m.size2() == static_cast<unsigned>(4));
+	BOOST_REQUIRE(m.size1() == static_cast<size_t>(3));
+	BOOST_REQUIRE(m.size2() == static_cast<size_t>(4));
 		
 	using namespace boost::test_tools;
 	BOOST_TEST(m(0, 0) == 2,	tolerance(1e-8));
@@ -44,10 +44,10 @@ BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerSave)
 	
 	std::filesystem::remove(testPath);
 
-	BOOST_REQUIRE(m.size1() == static_cast<unsigned>(4));
-	BOOST_REQUIRE(m.size2() == static_cast<unsigned>(3));
-	for (unsigned k = 0; k < 4; k++)
-		for (unsigned j = 0; j < 3; j++)
+	BOOST_REQUIRE(m.size1() == static_cast<size_t>(4));
+	BOOST_REQUIRE(m.size2() == static_cast<size_t>(3));
+	for (size_t k = 0; k < 4; k++)
+		for (size_t j = 0; j < 3; j++)
 			BOOST_TEST(m(k, j) == m1(k, j), boost::test_tools::tolerance(1e-8));
 }
 

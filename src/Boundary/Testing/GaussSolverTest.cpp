@@ -17,11 +17,11 @@ BOOST_AUTO_TEST_CASE(TestGaussSolverSolve)
 	UsualMatrixSerializer serializer;
 	UsualMatrix a = serializer.Load(testPath);
 
-	unsigned rowCount = a.size1();
-	unsigned columnCount = a.size2();
+	size_t rowCount = a.size1();
+	size_t columnCount = a.size2();
 
-	BOOST_REQUIRE(rowCount == static_cast<unsigned>(4));
-	BOOST_REQUIRE(columnCount == static_cast<unsigned>(5));
+	BOOST_REQUIRE(rowCount == static_cast<size_t>(4));
+	BOOST_REQUIRE(columnCount == static_cast<size_t>(5));
 		
 	matrix_column<UsualMatrix> lastColumn(a, columnCount - 1);
 
