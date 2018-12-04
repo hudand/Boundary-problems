@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "UsualMatrixSerializer.h"
-#include "Filesystem.h"
 #include "Logging.h"
 
 UsualMatrix UsualMatrixSerializer::Load(const std::filesystem::path& path) const

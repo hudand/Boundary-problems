@@ -154,6 +154,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Configuration.h" />
+    <ClInclude Include="ConsoleUserInterface.h" />
     <ClInclude Include="Filesystem.h" />
     <ClInclude Include="GaussSolver.h" />
     <ClInclude Include="ILinearSolver.h" />
@@ -166,9 +167,11 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="UsualMatrixSerializer.h" />
+    <ClInclude Include="VectorSerializer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Boundary.cpp" />
+    <ClCompile Include="ConsoleUserInterface.cpp" />
     <ClCompile Include="Filesystem.cpp" />
     <ClCompile Include="GaussSolver.cpp" />
     <ClCompile Include="JsonConfigurationManager.cpp" />
@@ -180,6 +183,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="UsualMatrixSerializer.cpp" />
+    <ClCompile Include="VectorSerializer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
