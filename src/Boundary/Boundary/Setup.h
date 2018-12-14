@@ -6,5 +6,6 @@ auto BuildInjector() {
 
 	return di::make_injector(
 		di::bind<JsonConfigurationManager>.to(GetSettingsPath() / "Settings.json")
-		, di::bind<UsualMatrixSerializer> );
+		, di::bind<UsualMatrixSerializer>
+		, di::bind<ConsoleUserInterface>);
 } 

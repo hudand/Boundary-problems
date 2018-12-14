@@ -4,6 +4,9 @@
 #include "VectorSerializer.h"
 #include "GaussSolver.h"
 
+ConsoleUserInterface::ConsoleUserInterface(const UsualMatrixSerializer &pSerializer) : matrixSerializer{ pSerializer }
+{
+}
 
 void ConsoleUserInterface::Start() const
 {
@@ -45,7 +48,7 @@ void ConsoleUserInterface::SolveLinearRun(std::stringstream &commandStream) cons
 
 	commandStream >> fileForMatrixA >> fileForVectorB >> fileForVectorX;
 
-	UsualMatrixSerializer matrixSerializer;
+	//UsualMatrixSerializer matrixSerializer;
 	VectorSerializer vectorSerializer;
 	
 	UsualMatrix A;
