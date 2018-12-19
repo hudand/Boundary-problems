@@ -43,8 +43,8 @@ BOOST_AUTO_TEST_CASE(TestUsualMatrixSerializerSave)
 	
 	std::filesystem::remove(testPath);
 
-	BOOST_REQUIRE(m.size1() == static_cast<size_t>(4));
-	BOOST_REQUIRE(m.size2() == static_cast<size_t>(3));
+	BOOST_REQUIRE(m1.size1() == static_cast<size_t>(4));
+	BOOST_REQUIRE(m1.size2() == static_cast<size_t>(3));
 	for (size_t k = 0; k < 4; k++)
 		for (size_t j = 0; j < 3; j++)
 			BOOST_TEST(m(k, j) == m1(k, j), accuracy);

@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Boundary\src\Boundary\Boundary;D:\boost\boost_1_68_0;$(IncludePath)</IncludePath>
+    <IncludePath>D:\boost\di;D:\boost\boost_1_68_0;d:\Boundary\src\Boundary\Boundary;$(IncludePath)</IncludePath>
     <LibraryPath>D:\boost\boost_1_68_0\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -171,6 +171,7 @@
     <ClCompile Include="JsonConfigurationManagerTest.cpp" />
     <ClCompile Include="TestModule.cpp" />
     <ClCompile Include="UsualMatrixSerializerTest.cpp" />
+    <ClCompile Include="VectorSerializerTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

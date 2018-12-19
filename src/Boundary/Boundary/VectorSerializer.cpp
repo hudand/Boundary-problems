@@ -12,10 +12,11 @@ Vector VectorSerializer::Load(const std::filesystem::path& path) const
 		
 		inputFile >> size;
 
+		std::istream_iterator<double> inputIterator{ inputFile };
+						
 		Vector v(size);
-		for (size_t i = 0; i < size; i++)
-			inputFile >> v(i);
-
+		boost::algorithm::copy_n(inputIterator, size, v.begin());
+				
 		BoostLog(info, "Vector of size " + std::to_string(size) + " successfully loaded from file \"" +
 			path.string() + "\"");
 		return v;
@@ -36,9 +37,9 @@ void VectorSerializer::Save(const std::filesystem::path& path, const Vector& vec
 
 		outputFile << vector.size() << std::endl;
 
-		for (size_t i = 0; i < vector.size(); i++)
-			outputFile << vector(i) << " ";
-		
+		std::ostream_iterator<double> outIterator{ outputFile, " " };
+		boost::algorithm::copy_n(vector.begin(), vector.size(), outIterator);
+						
 		BoostLog(info, "Vector of size " + std::to_string(vector.size()) + " successfully saved to file \"" + path.string() + "\"");
 	}
 	catch (...) {
